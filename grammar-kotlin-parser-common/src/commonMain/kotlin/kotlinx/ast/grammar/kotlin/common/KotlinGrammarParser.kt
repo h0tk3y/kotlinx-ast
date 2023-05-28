@@ -8,4 +8,8 @@ interface KotlinGrammarParser<Parser, Tree> : AstParser<Parser, Tree, KotlinGram
     fun parseKotlinFile(source: AstSource): Ast {
         return parse(source, KotlinGrammarParserType.kotlinFile)
     }
+    
+    fun parseKotlinScript(source: AstSource): Ast {
+        return parse(source, KotlinGrammarParserType.kotlinScript)
+    }
 }

@@ -16,6 +16,8 @@ object KotlinGrammarAntlrJavaParserExtractor
                 throw RuntimeException("token should be handled by internal ast parser")
             KotlinGrammarParserType.kotlinFile ->
                 KotlinParser::kotlinFile
+            KotlinGrammarParserType.kotlinScript ->
+                KotlinParser::script
             KotlinGrammarParserType.identifier ->
                 KotlinParser::identifier
             KotlinGrammarParserType.importList ->

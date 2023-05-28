@@ -5,6 +5,7 @@ import kotlinx.ast.common.AstParserType
 enum class KotlinGrammarParserType : AstParserType {
     token,
     kotlinFile,
+    kotlinScript,
     identifier,
     importList,
     simpleIdentifier,
