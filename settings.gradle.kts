@@ -15,10 +15,15 @@ pluginManagement {
     repositories {
         // used when developing antlr-kotlin gradle plugin
         mavenLocal()
-	mavenCentral()
-	maven("https://mvnrepository.com/artifact/com.github.gundy/semver4j")
+        mavenCentral()
         // used to download antlr-kotlin gradle plugin
-        maven("https://jitpack.io")
+        maven("https://jitpack.io") {
+            content {
+                includeGroupByRegex("com\\.github\\..*")
+                includeGroupByRegex("com\\.strumenta\\..*")
+            }
+        }
+//        maven("https://mvnrepository.com/artifact/com.github.gundy/semver4j")
         // used to download kotlin gradle plugin
         gradlePluginPortal()
     }
