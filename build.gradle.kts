@@ -44,9 +44,14 @@ tasks.withType<Wrapper> {
     distributionType = Wrapper.DistributionType.ALL
 }
 
-dependencies {
-    // Make the root project archives configuration depend on every subproject
-    subprojects.forEach {
-        archives(it)
-    }
+// Make the root project archives configuration depend on every subproject
+val allProjectDeps = configurations.create("allProjectDeps") {
+    isCanBeConsumed = false
+    isCanBeResolved = false
+}
+subprojects.forEach {
+    dependencies.add(allProjectDeps.name, it)
+}
+configurations.getByName("archives") {
+    extendsFrom(allProjectDeps)
 }
