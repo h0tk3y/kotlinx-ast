@@ -15,17 +15,12 @@ kotlin {
     }
 
     sourceSets {
-        val commonAntlr by creating {
-            dependencies {
-                api(project(":parser-antlr-kotlin"))
-            }
-        }
-
         val commonMain by getting {
-            dependsOn(commonAntlr)
             dependencies {
                 api(project(":grammar-kotlin-parser-common"))
+                api(project(":parser-antlr-kotlin"))
             }
+            kotlin.srcDirs("src/commonAntlr/kotlin")
         }
 
         val jvmTest by getting {
