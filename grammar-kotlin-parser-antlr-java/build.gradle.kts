@@ -37,3 +37,11 @@ tasks.generateGrammarSource {
         }
     outputDirectory = File("$projectDir/src/main/java/kotlinx/ast/grammar/kotlin/target/antlr/java/generated")
 }
+
+tasks.compileKotlin {
+    dependsOn(tasks.generateGrammarSource)
+}
+
+tasks.compileTestKotlin {
+    dependsOn(tasks.generateTestGrammarSource)
+}

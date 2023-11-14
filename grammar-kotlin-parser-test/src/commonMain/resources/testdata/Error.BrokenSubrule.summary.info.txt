@@ -1,0 +1,13 @@
+   ID Index        Position       Token
+    0 [0..5]       [1:1..1:6]     Identifier
+    2 [6..7]       [1:7..1:8]     LCURL
+    5 [9..10]      [2:2..2:3]     Identifier
+    7 [11..12]     [2:4..2:5]     ASSIGNMENT
+    9 [13..14]     [2:6..2:7]     IntegerLiteral
+   12 [16..17]     [3:2..3:3]     Identifier
+   14 [18..19]     [3:4..3:5]     ASSIGNMENT
+   16 [20..21]     [3:6..3:7]     IntegerLiteral
+   19 [23..24]     [4:2..4:3]     Identifier
+   21 [25..26]     [4:4..4:5]     ASSIGNMENT
+   23 [27..28]     [4:6..4:7]     IntegerLiteral
+   25 [29..30]     [5:1..5:2]     RCURL

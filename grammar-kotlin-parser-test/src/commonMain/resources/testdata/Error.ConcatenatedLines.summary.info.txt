@@ -1,0 +1,9 @@
+   ID Index        Position       Token
+                                  PackageHeader()
+                                  importList
+      [0..9]       [1:1..1:10]    KlassDeclaration(val a)
+      [8..9]       [1:9..1:10]      literalConstant
+    6 [8..9]       [1:9..1:10]        IntegerLiteral
+      [11..20]     [1:12..1:21]   KlassDeclaration(val b)
+      [19..20]     [1:20..1:21]     literalConstant
+   15 [19..20]     [1:20..1:21]       IntegerLiteral

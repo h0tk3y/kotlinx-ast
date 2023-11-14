@@ -1,0 +1,46 @@
+PackageHeader()
+importList
+KlassDeclaration(val a)
+  literalConstant
+    IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val b)
+  multiplicativeExpression
+    parenthesizedExpression
+      LPAREN >>>(<<< (DEFAULT_TOKEN_CHANNEL)
+      expression
+        disjunction
+          conjunction
+            equality
+              comparison
+                genericCallLikeComparison
+                  infixOperation
+                    elvisExpression
+                      infixFunctionCall
+                        rangeExpression
+                          additiveExpression
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
+                            Inside_WS >>> <<< (HIDDEN)
+                            additiveOperator
+                              ADD >>>+<<< (DEFAULT_TOKEN_CHANNEL)
+                            Inside_WS >>> <<< (HIDDEN)
+                            multiplicativeExpression
+                              asExpression
+                                prefixUnaryExpression
+                                  postfixUnaryExpression
+                                    primaryExpression
+                                      literalConstant
+                                        IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
+      RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
+    multiplicativeOperator
+      MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+    literalConstant
+      IntegerLiteral >>>4<<< (DEFAULT_TOKEN_CHANNEL)
+KlassDeclaration(val c)
+  literalConstant
+    IntegerLiteral >>>9<<< (DEFAULT_TOKEN_CHANNEL)

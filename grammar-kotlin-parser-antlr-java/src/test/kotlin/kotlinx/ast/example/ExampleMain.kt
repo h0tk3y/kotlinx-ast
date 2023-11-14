@@ -5,6 +5,7 @@ import kotlinx.ast.common.ast.Ast
 import kotlinx.ast.common.print
 import kotlinx.ast.grammar.kotlin.common.summary
 import kotlinx.ast.grammar.kotlin.target.antlr.java.KotlinGrammarAntlrJavaParser
+import java.util.function.Supplier
 
 fun main() {
     val source = AstSource.File(
@@ -18,3 +19,5 @@ fun main() {
             errors.forEach(::println)
         }
 }
+
+val a = 1; val b = 3

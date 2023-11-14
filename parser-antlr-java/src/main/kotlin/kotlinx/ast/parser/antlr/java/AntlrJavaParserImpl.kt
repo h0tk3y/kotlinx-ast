@@ -132,7 +132,7 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
     lexerFactory: (CharStream) -> Lexer,
     parserFactory: (TokenStream) -> P
 ): List<Ast> {
-    val listener = AntlrJavaErrorListener(source)
+//    val listener = AntlrJavaErrorListener(source)
     val input = source.toAntlrJavaCharStream()
     val lexer = lexerFactory(input)
 //    lexer.removeErrorListeners()
