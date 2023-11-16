@@ -14,8 +14,6 @@ kotlinFile
   Identifier >>>b<<< (DEFAULT_TOKEN_CHANNEL)
   WS >>> <<< (HIDDEN)
   ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
-  WS >>> <<< (HIDDEN)
-  IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)
   NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
   WS >>>\t<<< (HIDDEN)
   Identifier >>>c<<< (DEFAULT_TOKEN_CHANNEL)

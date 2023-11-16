@@ -89,29 +89,28 @@ kotlinFile
                                                                         primaryExpression
                                                                           literalConstant
                                                                             IntegerLiteral >>>3<<< (DEFAULT_TOKEN_CHANNEL)
-                                          RPAREN >>>)<<< (DEFAULT_TOKEN_CHANNEL)
-                                WS >>> <<< (HIDDEN)
-                                multiplicativeOperator
-                                  MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
-                                WS >>> <<< (HIDDEN)
-                                asExpression
-                                  prefixUnaryExpression
-                                    postfixUnaryExpression
-                                      primaryExpression
-                                        literalConstant
-                                          IntegerLiteral >>>4<<< (DEFAULT_TOKEN_CHANNEL)
-        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  Inside_WS >>> <<< (HIDDEN)
+                                                                  multiplicativeOperator
+                                                                    MULT >>>*<<< (DEFAULT_TOKEN_CHANNEL)
+                                                                  Inside_WS >>> <<< (HIDDEN)
+                                                                  asExpression
+                                                                    prefixUnaryExpression
+                                                                      postfixUnaryExpression
+                                                                        primaryExpression
+                                                                          literalConstant
+                                                                            IntegerLiteral >>>4<<< (DEFAULT_TOKEN_CHANNEL)
+  Inside_NL >>>\n<<< (HIDDEN)
   topLevelObject
     declaration
       propertyDeclaration
         VAL >>>val<<< (DEFAULT_TOKEN_CHANNEL)
-        WS >>> <<< (HIDDEN)
+        Inside_WS >>> <<< (HIDDEN)
         variableDeclaration
           simpleIdentifier
             Identifier >>>c<<< (DEFAULT_TOKEN_CHANNEL)
-        WS >>> <<< (HIDDEN)
+        Inside_WS >>> <<< (HIDDEN)
         ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
-        WS >>> <<< (HIDDEN)
+        Inside_WS >>> <<< (HIDDEN)
         expression
           disjunction
             conjunction

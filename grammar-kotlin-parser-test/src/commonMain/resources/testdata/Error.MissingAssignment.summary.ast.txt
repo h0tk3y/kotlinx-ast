@@ -1,8 +1,6 @@
 PackageHeader()
 importList
 KlassDeclaration(val a)
-  literalConstant
-    IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
 KlassDeclaration(val b)
   literalConstant
     IntegerLiteral >>>2<<< (DEFAULT_TOKEN_CHANNEL)

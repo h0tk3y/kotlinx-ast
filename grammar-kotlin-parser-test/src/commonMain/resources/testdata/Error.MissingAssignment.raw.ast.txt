@@ -10,27 +10,9 @@ kotlinFile
           simpleIdentifier
             Identifier >>>a<<< (DEFAULT_TOKEN_CHANNEL)
         WS >>> <<< (HIDDEN)
-        ASSIGNMENT >>>=<<< (DEFAULT_TOKEN_CHANNEL)
-        WS >>> <<< (HIDDEN)
-        expression
-          disjunction
-            conjunction
-              equality
-                comparison
-                  genericCallLikeComparison
-                    infixOperation
-                      elvisExpression
-                        infixFunctionCall
-                          rangeExpression
-                            additiveExpression
-                              multiplicativeExpression
-                                asExpression
-                                  prefixUnaryExpression
-                                    postfixUnaryExpression
-                                      primaryExpression
-                                        literalConstant
-                                          IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-        NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
+        IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
+    semis
+      NL >>>\n<<< (DEFAULT_TOKEN_CHANNEL)
   topLevelObject
     declaration
       propertyDeclaration

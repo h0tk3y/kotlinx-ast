@@ -1,5 +1,5 @@
    ID Index        Position       Token
-      [0..39]      [1:1..3:15]    kotlinFile
+      [0..38]      [1:1..3:15]    kotlinFile
                                     packageHeader
                                     importList
       [0..10]      [1:1..1:11]      topLevelObject
@@ -32,9 +32,9 @@
       [8..9]       [1:9..1:10]                                            literalConstant
     6 [8..9]       [1:9..1:10]                                              IntegerLiteral
     7 [9..10]      [1:10..1:11]           NL
-      [10..30]     [2:1..2:21]      topLevelObject
-      [10..30]     [2:1..2:21]        declaration
-      [10..30]     [2:1..2:21]          propertyDeclaration
+      [10..28]     [2:1..2:19]      topLevelObject
+      [10..28]     [2:1..2:19]        declaration
+      [10..28]     [2:1..2:19]          propertyDeclaration
     8 [10..13]     [2:1..2:4]             VAL
     9 [13..14]     [2:4..2:5]             WS
       [14..15]     [2:5..2:6]             variableDeclaration
@@ -43,35 +43,35 @@
    11 [15..16]     [2:6..2:7]             WS
    12 [16..17]     [2:7..2:8]             ASSIGNMENT
    13 [17..18]     [2:8..2:9]             WS
-      [18..29]     [2:9..2:20]            expression
-      [18..29]     [2:9..2:20]              disjunction
-      [18..29]     [2:9..2:20]                conjunction
-      [18..29]     [2:9..2:20]                  equality
-      [18..29]     [2:9..2:20]                    comparison
-      [18..29]     [2:9..2:20]                      genericCallLikeComparison
-      [18..29]     [2:9..2:20]                        infixOperation
-      [18..29]     [2:9..2:20]                          elvisExpression
-      [18..29]     [2:9..2:20]                            infixFunctionCall
-      [18..29]     [2:9..2:20]                              rangeExpression
-      [18..29]     [2:9..2:20]                                additiveExpression
-      [18..29]     [2:9..2:20]                                  multiplicativeExpression
-      [18..25]     [2:9..2:16]                                    asExpression
-      [18..25]     [2:9..2:16]                                      prefixUnaryExpression
-      [18..25]     [2:9..2:16]                                        postfixUnaryExpression
-      [18..25]     [2:9..2:16]                                          primaryExpression
-      [18..25]     [2:9..2:16]                                            parenthesizedExpression
+      [18..28]     [2:9..2:19]            expression
+      [18..28]     [2:9..2:19]              disjunction
+      [18..28]     [2:9..2:19]                conjunction
+      [18..28]     [2:9..2:19]                  equality
+      [18..28]     [2:9..2:19]                    comparison
+      [18..28]     [2:9..2:19]                      genericCallLikeComparison
+      [18..28]     [2:9..2:19]                        infixOperation
+      [18..28]     [2:9..2:19]                          elvisExpression
+      [18..28]     [2:9..2:19]                            infixFunctionCall
+      [18..28]     [2:9..2:19]                              rangeExpression
+      [18..28]     [2:9..2:19]                                additiveExpression
+      [18..28]     [2:9..2:19]                                  multiplicativeExpression
+      [18..28]     [2:9..2:19]                                    asExpression
+      [18..28]     [2:9..2:19]                                      prefixUnaryExpression
+      [18..28]     [2:9..2:19]                                        postfixUnaryExpression
+      [18..28]     [2:9..2:19]                                          primaryExpression
+      [18..28]     [2:9..2:19]                                            parenthesizedExpression
    14 [18..19]     [2:9..2:10]                                              LPAREN
-      [19..24]     [2:10..2:15]                                             expression
-      [19..24]     [2:10..2:15]                                               disjunction
-      [19..24]     [2:10..2:15]                                                 conjunction
-      [19..24]     [2:10..2:15]                                                   equality
-      [19..24]     [2:10..2:15]                                                     comparison
-      [19..24]     [2:10..2:15]                                                       genericCallLikeComparison
-      [19..24]     [2:10..2:15]                                                         infixOperation
-      [19..24]     [2:10..2:15]                                                           elvisExpression
-      [19..24]     [2:10..2:15]                                                             infixFunctionCall
-      [19..24]     [2:10..2:15]                                                               rangeExpression
-      [19..24]     [2:10..2:15]                                                                 additiveExpression
+      [19..28]     [2:10..2:19]                                             expression
+      [19..28]     [2:10..2:19]                                               disjunction
+      [19..28]     [2:10..2:19]                                                 conjunction
+      [19..28]     [2:10..2:19]                                                   equality
+      [19..28]     [2:10..2:19]                                                     comparison
+      [19..28]     [2:10..2:19]                                                       genericCallLikeComparison
+      [19..28]     [2:10..2:19]                                                         infixOperation
+      [19..28]     [2:10..2:19]                                                           elvisExpression
+      [19..28]     [2:10..2:19]                                                             infixFunctionCall
+      [19..28]     [2:10..2:19]                                                               rangeExpression
+      [19..28]     [2:10..2:19]                                                                 additiveExpression
       [19..20]     [2:10..2:11]                                                                   multiplicativeExpression
       [19..20]     [2:10..2:11]                                                                     asExpression
       [19..20]     [2:10..2:11]                                                                       prefixUnaryExpression
@@ -83,54 +83,53 @@
       [21..22]     [2:12..2:13]                                                                   additiveOperator
    17 [21..22]     [2:12..2:13]                                                                     ADD
    18 [22..23]     [2:13..2:14]                                                                   Inside_WS
-      [23..24]     [2:14..2:15]                                                                   multiplicativeExpression
+      [23..28]     [2:14..2:19]                                                                   multiplicativeExpression
       [23..24]     [2:14..2:15]                                                                     asExpression
       [23..24]     [2:14..2:15]                                                                       prefixUnaryExpression
       [23..24]     [2:14..2:15]                                                                         postfixUnaryExpression
       [23..24]     [2:14..2:15]                                                                           primaryExpression
       [23..24]     [2:14..2:15]                                                                             literalConstant
    19 [23..24]     [2:14..2:15]                                                                               IntegerLiteral
-   20 [24..25]     [2:15..2:16]                                             RPAREN
-   21 [25..26]     [2:16..2:17]                                   WS
-      [26..27]     [2:17..2:18]                                   multiplicativeOperator
-   22 [26..27]     [2:17..2:18]                                     MULT
-   23 [27..28]     [2:18..2:19]                                   WS
-      [28..29]     [2:19..2:20]                                   asExpression
-      [28..29]     [2:19..2:20]                                     prefixUnaryExpression
-      [28..29]     [2:19..2:20]                                       postfixUnaryExpression
-      [28..29]     [2:19..2:20]                                         primaryExpression
-      [28..29]     [2:19..2:20]                                           literalConstant
-   24 [28..29]     [2:19..2:20]                                             IntegerLiteral
-   25 [29..30]     [2:20..2:21]           NL
-      [30..39]     [3:1..3:15]      topLevelObject
-      [30..39]     [3:1..3:10]        declaration
-      [30..39]     [3:1..3:10]          propertyDeclaration
-   26 [30..33]     [3:1..3:4]             VAL
-   27 [33..34]     [3:4..3:5]             WS
-      [34..35]     [3:5..3:6]             variableDeclaration
-      [34..35]     [3:5..3:6]               simpleIdentifier
-   28 [34..35]     [3:5..3:6]                 Identifier
-   29 [35..36]     [3:6..3:7]             WS
-   30 [36..37]     [3:7..3:8]             ASSIGNMENT
-   31 [37..38]     [3:8..3:9]             WS
-      [38..39]     [3:9..3:10]            expression
-      [38..39]     [3:9..3:10]              disjunction
-      [38..39]     [3:9..3:10]                conjunction
-      [38..39]     [3:9..3:10]                  equality
-      [38..39]     [3:9..3:10]                    comparison
-      [38..39]     [3:9..3:10]                      genericCallLikeComparison
-      [38..39]     [3:9..3:10]                        infixOperation
-      [38..39]     [3:9..3:10]                          elvisExpression
-      [38..39]     [3:9..3:10]                            infixFunctionCall
-      [38..39]     [3:9..3:10]                              rangeExpression
-      [38..39]     [3:9..3:10]                                additiveExpression
-      [38..39]     [3:9..3:10]                                  multiplicativeExpression
-      [38..39]     [3:9..3:10]                                    asExpression
-      [38..39]     [3:9..3:10]                                      prefixUnaryExpression
-      [38..39]     [3:9..3:10]                                        postfixUnaryExpression
-      [38..39]     [3:9..3:10]                                          primaryExpression
-      [38..39]     [3:9..3:10]                                            literalConstant
-   32 [38..39]     [3:9..3:10]                                              IntegerLiteral
-      [39..39]     [3:10..3:15]       semis
-   33 [39..39]     [3:10..3:15]         EOF
-   33 [39..39]     [3:10..3:15]     EOF
+   20 [24..25]     [2:15..2:16]                                                                     Inside_WS
+      [25..26]     [2:16..2:17]                                                                     multiplicativeOperator
+   21 [25..26]     [2:16..2:17]                                                                       MULT
+   22 [26..27]     [2:17..2:18]                                                                     Inside_WS
+      [27..28]     [2:18..2:19]                                                                     asExpression
+      [27..28]     [2:18..2:19]                                                                       prefixUnaryExpression
+      [27..28]     [2:18..2:19]                                                                         postfixUnaryExpression
+      [27..28]     [2:18..2:19]                                                                           primaryExpression
+      [27..28]     [2:18..2:19]                                                                             literalConstant
+   23 [27..28]     [2:18..2:19]                                                                               IntegerLiteral
+   24 [28..29]     [2:19..2:20]     Inside_NL
+      [29..38]     [3:1..3:15]      topLevelObject
+      [29..38]     [3:1..3:10]        declaration
+      [29..38]     [3:1..3:10]          propertyDeclaration
+   25 [29..32]     [3:1..3:4]             VAL
+   26 [32..33]     [3:4..3:5]             Inside_WS
+      [33..34]     [3:5..3:6]             variableDeclaration
+      [33..34]     [3:5..3:6]               simpleIdentifier
+   27 [33..34]     [3:5..3:6]                 Identifier
+   28 [34..35]     [3:6..3:7]             Inside_WS
+   29 [35..36]     [3:7..3:8]             ASSIGNMENT
+   30 [36..37]     [3:8..3:9]             Inside_WS
+      [37..38]     [3:9..3:10]            expression
+      [37..38]     [3:9..3:10]              disjunction
+      [37..38]     [3:9..3:10]                conjunction
+      [37..38]     [3:9..3:10]                  equality
+      [37..38]     [3:9..3:10]                    comparison
+      [37..38]     [3:9..3:10]                      genericCallLikeComparison
+      [37..38]     [3:9..3:10]                        infixOperation
+      [37..38]     [3:9..3:10]                          elvisExpression
+      [37..38]     [3:9..3:10]                            infixFunctionCall
+      [37..38]     [3:9..3:10]                              rangeExpression
+      [37..38]     [3:9..3:10]                                additiveExpression
+      [37..38]     [3:9..3:10]                                  multiplicativeExpression
+      [37..38]     [3:9..3:10]                                    asExpression
+      [37..38]     [3:9..3:10]                                      prefixUnaryExpression
+      [37..38]     [3:9..3:10]                                        postfixUnaryExpression
+      [37..38]     [3:9..3:10]                                          primaryExpression
+      [37..38]     [3:9..3:10]                                            literalConstant
+   31 [37..38]     [3:9..3:10]                                              IntegerLiteral
+      [38..38]     [3:10..3:15]       semis
+   32 [38..38]     [3:10..3:15]         EOF
+   32 [38..38]     [3:10..3:15]     EOF

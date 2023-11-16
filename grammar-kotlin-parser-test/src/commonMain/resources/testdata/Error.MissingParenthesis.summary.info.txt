@@ -4,44 +4,48 @@
       [0..10]      [1:1..1:11]    KlassDeclaration(val a)
       [8..9]       [1:9..1:10]      literalConstant
     6 [8..9]       [1:9..1:10]        IntegerLiteral
-      [10..30]     [2:1..2:21]    KlassDeclaration(val b)
-      [18..29]     [2:9..2:20]      multiplicativeExpression
-      [18..25]     [2:9..2:16]        parenthesizedExpression
-   14 [18..19]     [2:9..2:10]          LPAREN
-      [19..24]     [2:10..2:15]         expression
-      [19..24]     [2:10..2:15]           disjunction
-      [19..24]     [2:10..2:15]             conjunction
-      [19..24]     [2:10..2:15]               equality
-      [19..24]     [2:10..2:15]                 comparison
-      [19..24]     [2:10..2:15]                   genericCallLikeComparison
-      [19..24]     [2:10..2:15]                     infixOperation
-      [19..24]     [2:10..2:15]                       elvisExpression
-      [19..24]     [2:10..2:15]                         infixFunctionCall
-      [19..24]     [2:10..2:15]                           rangeExpression
-      [19..24]     [2:10..2:15]                             additiveExpression
-      [19..20]     [2:10..2:11]                               multiplicativeExpression
-      [19..20]     [2:10..2:11]                                 asExpression
-      [19..20]     [2:10..2:11]                                   prefixUnaryExpression
-      [19..20]     [2:10..2:11]                                     postfixUnaryExpression
-      [19..20]     [2:10..2:11]                                       primaryExpression
-      [19..20]     [2:10..2:11]                                         literalConstant
-   15 [19..20]     [2:10..2:11]                                           IntegerLiteral
-   16 [20..21]     [2:11..2:12]                               Inside_WS
-      [21..22]     [2:12..2:13]                               additiveOperator
-   17 [21..22]     [2:12..2:13]                                 ADD
-   18 [22..23]     [2:13..2:14]                               Inside_WS
-      [23..24]     [2:14..2:15]                               multiplicativeExpression
-      [23..24]     [2:14..2:15]                                 asExpression
-      [23..24]     [2:14..2:15]                                   prefixUnaryExpression
-      [23..24]     [2:14..2:15]                                     postfixUnaryExpression
-      [23..24]     [2:14..2:15]                                       primaryExpression
-      [23..24]     [2:14..2:15]                                         literalConstant
-   19 [23..24]     [2:14..2:15]                                           IntegerLiteral
-   20 [24..25]     [2:15..2:16]         RPAREN
-      [26..27]     [2:17..2:18]       multiplicativeOperator
-   22 [26..27]     [2:17..2:18]         MULT
-      [28..29]     [2:19..2:20]       literalConstant
-   24 [28..29]     [2:19..2:20]         IntegerLiteral
-      [30..39]     [3:1..3:10]    KlassDeclaration(val c)
-      [38..39]     [3:9..3:10]      literalConstant
-   32 [38..39]     [3:9..3:10]        IntegerLiteral
+      [10..28]     [2:1..2:19]    KlassDeclaration(val b)
+      [18..28]     [2:9..2:19]      parenthesizedExpression
+   14 [18..19]     [2:9..2:10]        LPAREN
+      [19..28]     [2:10..2:19]       expression
+      [19..28]     [2:10..2:19]         disjunction
+      [19..28]     [2:10..2:19]           conjunction
+      [19..28]     [2:10..2:19]             equality
+      [19..28]     [2:10..2:19]               comparison
+      [19..28]     [2:10..2:19]                 genericCallLikeComparison
+      [19..28]     [2:10..2:19]                   infixOperation
+      [19..28]     [2:10..2:19]                     elvisExpression
+      [19..28]     [2:10..2:19]                       infixFunctionCall
+      [19..28]     [2:10..2:19]                         rangeExpression
+      [19..28]     [2:10..2:19]                           additiveExpression
+      [19..20]     [2:10..2:11]                             multiplicativeExpression
+      [19..20]     [2:10..2:11]                               asExpression
+      [19..20]     [2:10..2:11]                                 prefixUnaryExpression
+      [19..20]     [2:10..2:11]                                   postfixUnaryExpression
+      [19..20]     [2:10..2:11]                                     primaryExpression
+      [19..20]     [2:10..2:11]                                       literalConstant
+   15 [19..20]     [2:10..2:11]                                         IntegerLiteral
+   16 [20..21]     [2:11..2:12]                             Inside_WS
+      [21..22]     [2:12..2:13]                             additiveOperator
+   17 [21..22]     [2:12..2:13]                               ADD
+   18 [22..23]     [2:13..2:14]                             Inside_WS
+      [23..28]     [2:14..2:19]                             multiplicativeExpression
+      [23..24]     [2:14..2:15]                               asExpression
+      [23..24]     [2:14..2:15]                                 prefixUnaryExpression
+      [23..24]     [2:14..2:15]                                   postfixUnaryExpression
+      [23..24]     [2:14..2:15]                                     primaryExpression
+      [23..24]     [2:14..2:15]                                       literalConstant
+   19 [23..24]     [2:14..2:15]                                         IntegerLiteral
+   20 [24..25]     [2:15..2:16]                               Inside_WS
+      [25..26]     [2:16..2:17]                               multiplicativeOperator
+   21 [25..26]     [2:16..2:17]                                 MULT
+   22 [26..27]     [2:17..2:18]                               Inside_WS
+      [27..28]     [2:18..2:19]                               asExpression
+      [27..28]     [2:18..2:19]                                 prefixUnaryExpression
+      [27..28]     [2:18..2:19]                                   postfixUnaryExpression
+      [27..28]     [2:18..2:19]                                     primaryExpression
+      [27..28]     [2:18..2:19]                                       literalConstant
+   23 [27..28]     [2:18..2:19]                                         IntegerLiteral
+      [29..38]     [3:1..3:10]    KlassDeclaration(val c)
+      [37..38]     [3:9..3:10]      literalConstant
+   31 [37..38]     [3:9..3:10]        IntegerLiteral

@@ -1,8 +1,8 @@
    ID Index        Position       Token
-      [0..20]      [1:1..1:26]    kotlinFile
+      [0..19]      [1:1..1:25]    kotlinFile
                                     packageHeader
                                     importList
-      [0..10]      [1:1..1:11]      topLevelObject
+      [0..9]       [1:1..1:10]      topLevelObject
       [0..9]       [1:1..1:10]        declaration
       [0..9]       [1:1..1:10]          propertyDeclaration
     0 [0..3]       [1:1..1:4]             VAL
@@ -31,38 +31,36 @@
       [8..9]       [1:9..1:10]                                          primaryExpression
       [8..9]       [1:9..1:10]                                            literalConstant
     6 [8..9]       [1:9..1:10]                                              IntegerLiteral
-      [9..10]      [1:10..1:11]       semis
-    7 [9..10]      [1:10..1:11]         SEMICOLON
-    8 [10..11]     [1:11..1:12]     WS
-      [11..20]     [1:12..1:26]     topLevelObject
-      [11..20]     [1:12..1:21]       declaration
-      [11..20]     [1:12..1:21]         propertyDeclaration
-    9 [11..14]     [1:12..1:15]           VAL
-   10 [14..15]     [1:15..1:16]           WS
-      [15..16]     [1:16..1:17]           variableDeclaration
-      [15..16]     [1:16..1:17]             simpleIdentifier
-   11 [15..16]     [1:16..1:17]               Identifier
-   12 [16..17]     [1:17..1:18]           WS
-   13 [17..18]     [1:18..1:19]           ASSIGNMENT
-   14 [18..19]     [1:19..1:20]           WS
-      [19..20]     [1:20..1:21]           expression
-      [19..20]     [1:20..1:21]             disjunction
-      [19..20]     [1:20..1:21]               conjunction
-      [19..20]     [1:20..1:21]                 equality
-      [19..20]     [1:20..1:21]                   comparison
-      [19..20]     [1:20..1:21]                     genericCallLikeComparison
-      [19..20]     [1:20..1:21]                       infixOperation
-      [19..20]     [1:20..1:21]                         elvisExpression
-      [19..20]     [1:20..1:21]                           infixFunctionCall
-      [19..20]     [1:20..1:21]                             rangeExpression
-      [19..20]     [1:20..1:21]                               additiveExpression
-      [19..20]     [1:20..1:21]                                 multiplicativeExpression
-      [19..20]     [1:20..1:21]                                   asExpression
-      [19..20]     [1:20..1:21]                                     prefixUnaryExpression
-      [19..20]     [1:20..1:21]                                       postfixUnaryExpression
-      [19..20]     [1:20..1:21]                                         primaryExpression
-      [19..20]     [1:20..1:21]                                           literalConstant
-   15 [19..20]     [1:20..1:21]                                             IntegerLiteral
-      [20..20]     [1:21..1:26]       semis
-   16 [20..20]     [1:21..1:26]         EOF
-   16 [20..20]     [1:21..1:26]     EOF
+    7 [9..10]      [1:10..1:11]     WS
+      [10..19]     [1:11..1:25]     topLevelObject
+      [10..19]     [1:11..1:20]       declaration
+      [10..19]     [1:11..1:20]         propertyDeclaration
+    8 [10..13]     [1:11..1:14]           VAL
+    9 [13..14]     [1:14..1:15]           WS
+      [14..15]     [1:15..1:16]           variableDeclaration
+      [14..15]     [1:15..1:16]             simpleIdentifier
+   10 [14..15]     [1:15..1:16]               Identifier
+   11 [15..16]     [1:16..1:17]           WS
+   12 [16..17]     [1:17..1:18]           ASSIGNMENT
+   13 [17..18]     [1:18..1:19]           WS
+      [18..19]     [1:19..1:20]           expression
+      [18..19]     [1:19..1:20]             disjunction
+      [18..19]     [1:19..1:20]               conjunction
+      [18..19]     [1:19..1:20]                 equality
+      [18..19]     [1:19..1:20]                   comparison
+      [18..19]     [1:19..1:20]                     genericCallLikeComparison
+      [18..19]     [1:19..1:20]                       infixOperation
+      [18..19]     [1:19..1:20]                         elvisExpression
+      [18..19]     [1:19..1:20]                           infixFunctionCall
+      [18..19]     [1:19..1:20]                             rangeExpression
+      [18..19]     [1:19..1:20]                               additiveExpression
+      [18..19]     [1:19..1:20]                                 multiplicativeExpression
+      [18..19]     [1:19..1:20]                                   asExpression
+      [18..19]     [1:19..1:20]                                     prefixUnaryExpression
+      [18..19]     [1:19..1:20]                                       postfixUnaryExpression
+      [18..19]     [1:19..1:20]                                         primaryExpression
+      [18..19]     [1:19..1:20]                                           literalConstant
+   14 [18..19]     [1:19..1:20]                                             IntegerLiteral
+      [19..19]     [1:20..1:25]       semis
+   15 [19..19]     [1:20..1:25]         EOF
+   15 [19..19]     [1:20..1:25]     EOF

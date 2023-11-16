@@ -22,8 +22,7 @@ abstract class AntlrJavaParser<P : Parser, Type : AstParserType>(
     }
 
     override fun parse(source: AstSource, type: Type, issues: MutableList<Issue>): Ast {
-        val ast = antlrJavaParser(source, extractor, type, lexerFactory, parserFactory, issues)
-        return ast
+        return antlrJavaParser(source, extractor, type, lexerFactory, parserFactory, issues)
     }
 
     override fun parse(source: AstSource, types: List<Type>): List<Ast> {
@@ -31,7 +30,6 @@ abstract class AntlrJavaParser<P : Parser, Type : AstParserType>(
     }
 
     override fun parse(source: AstSource, types: List<Type>, issues: MutableList<Issue>): List<Ast> {
-        val ast = antlrJavaParser(source, extractor, types, lexerFactory, parserFactory, issues)
-        return ast
+        return antlrJavaParser(source, extractor, types, lexerFactory, parserFactory, issues)
     }
 }

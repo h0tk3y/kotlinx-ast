@@ -30,8 +30,6 @@ kotlinFile
                                       primaryExpression
                                         literalConstant
                                           IntegerLiteral >>>1<<< (DEFAULT_TOKEN_CHANNEL)
-    semis
-      SEMICOLON >>>;<<< (DEFAULT_TOKEN_CHANNEL)
   WS >>> <<< (HIDDEN)
   topLevelObject
     declaration
