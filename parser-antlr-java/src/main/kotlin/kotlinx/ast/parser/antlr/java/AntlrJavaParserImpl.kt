@@ -3,10 +3,12 @@ package kotlinx.ast.parser.antlr.java
 import kotlinx.ast.common.AstChannel
 import kotlinx.ast.common.AstParserType
 import kotlinx.ast.common.AstSource
+import kotlinx.ast.common.Issue
 import kotlinx.ast.common.ast.*
 import kotlinx.ast.common.impl.AstList
 import kotlinx.ast.common.impl.flatten
 import org.antlr.v4.runtime.*
+import org.antlr.v4.runtime.tree.ErrorNode
 import org.antlr.v4.runtime.tree.ParseTree
 import org.antlr.v4.runtime.tree.TerminalNode
 
@@ -82,14 +84,14 @@ private class AntlrJavaParserImpl(
         return result.map(::toAstTerminal)
     }
 
-    fun parse(node: ParseTree): AstList {
+    fun parse(node: ParseTree, issues: MutableList<Issue>): AstList {
         val start = hiddenTokens(node, start = true)
         val stop = hiddenTokens(node, start = false)
         val ast = when (node) {
             is ParserRuleContext -> {
                 val name = parserNames[node.ruleIndex]
                 val children = (node.children ?: emptyList<ParseTree>()).flatMap { children ->
-                    parse(children).flatten().map { ast ->
+                    parse(children, issues).flatten().map { ast ->
                         ast.flatten(defaultChannel)
                     }.flatten()
                 }
@@ -99,9 +101,19 @@ private class AntlrJavaParserImpl(
                     .fold(emptyAstInfo) { left, right ->
                         left + right
                     }
+
+                if (node.exception != null) {
+                    val message = "Recognition exception: ${node.exception.message}"
+                    issues.add(Issue.syntactic(message, position = node.toPosition()))
+                }
+
                 DefaultAstNode(name, children).withAstInfo(info)
             }
             is TerminalNode -> {
+                if (node is ErrorNode) {
+                    val message = "Error node found (token: ${node.symbol?.text})"
+                    issues.add(Issue.syntactic(message, position = node.toPosition()))
+                }
                 toAstTerminal(node.symbol ?: throw RuntimeException())
             }
             else ->
@@ -116,9 +128,10 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
     extractor: AntlrJavaParserExtractor<P, Type>,
     type: Type,
     lexerFactory: (CharStream) -> Lexer,
-    parserFactory: (TokenStream) -> P
+    parserFactory: (TokenStream) -> P,
+    issues: MutableList<Issue>
 ): Ast {
-    val result = antlrJavaParser(source, extractor, listOf(type), lexerFactory, parserFactory)
+    val result = antlrJavaParser(source, extractor, listOf(type), lexerFactory, parserFactory, issues)
     if (result.size != 1) {
         throw RuntimeException("expected exactly one ast!")
     }
@@ -130,7 +143,8 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
     extractor: AntlrJavaParserExtractor<P, Type>,
     types: List<Type>,
     lexerFactory: (CharStream) -> Lexer,
-    parserFactory: (TokenStream) -> P
+    parserFactory: (TokenStream) -> P,
+    issues: MutableList<Issue>
 ): List<Ast> {
 //    val listener = AntlrJavaErrorListener(source)
     val input = source.toAntlrJavaCharStream()
@@ -163,7 +177,7 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
                 DefaultAstTerminal(tokenNames[token.type] ?: "", token.text ?: "", channels[token.channel])
             }
         } else {
-            astParser.parse(extractor.extract(parser, type)).join()
+            astParser.parse(extractor.extract(parser, type), issues).join()
         }
     }
     if (stream.LA(1) != -1) {
