@@ -102,19 +102,20 @@ private class AntlrJavaParserImpl(
                         left + right
                     }
 
+                val ast = DefaultAstNode(name, children).withAstInfo(info)
                 if (node.exception != null) {
                     val message = "Recognition exception: ${node.exception.message}"
-                    issues.add(Issue.syntactic(message, position = node.toPosition()))
+                    issues.add(Issue.syntactic(message, position = node.toPosition(), ast = ast))
                 }
-
-                DefaultAstNode(name, children).withAstInfo(info)
+                ast
             }
             is TerminalNode -> {
+                val ast = toAstTerminal(node.symbol ?: throw RuntimeException())
                 if (node is ErrorNode) {
                     val message = "Error node found (token: ${node.symbol?.text})"
-                    issues.add(Issue.syntactic(message, position = node.toPosition()))
+                    issues.add(Issue.syntactic(message, position = node.toPosition(), ast = ast))
                 }
-                toAstTerminal(node.symbol ?: throw RuntimeException())
+                ast
             }
             else ->
                 throw RuntimeException()

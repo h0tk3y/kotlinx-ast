@@ -1,6 +1,6 @@
 package kotlinx.ast.common
 
-import java.io.Serializable
+import kotlinx.ast.common.ast.Ast
 
 enum class IssueType {
     LEXICAL,
@@ -19,8 +19,9 @@ data class Issue(
     val type: IssueType,
     val message: String,
     val severity: IssueSeverity = IssueSeverity.ERROR,
-    val position: Position? = null
-) : Serializable {
+    val position: Position? = null,
+    val ast: Ast? = null
+) {
 
     companion object {
         fun lexical(
@@ -31,8 +32,9 @@ data class Issue(
         fun syntactic(
             message: String,
             severity: IssueSeverity = IssueSeverity.ERROR,
-            position: Position? = null
-        ): Issue = Issue(IssueType.SYNTACTIC, message, severity, position)
+            position: Position? = null,
+            ast: Ast? = null
+        ): Issue = Issue(IssueType.SYNTACTIC, message, severity, position, ast)
         fun semantic(
             message: String,
             severity: IssueSeverity = IssueSeverity.ERROR,
