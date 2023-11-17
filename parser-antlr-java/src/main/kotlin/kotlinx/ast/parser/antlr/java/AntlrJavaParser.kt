@@ -17,9 +17,8 @@ abstract class AntlrJavaParser<P : Parser, Type : AstParserType>(
     private val parserFactory: (TokenStream) -> P
 ) : AstParser<P, ParseTree, Type> {
 
-    override fun parse(source: AstSource, type: Type): Ast {
-        return parse(source, type, mutableListOf())
-    }
+    override fun parse(source: AstSource, type: Type): Ast =
+        parse(source, type, mutableListOf())
 
     override fun parse(source: AstSource, type: Type, issues: MutableList<Issue>): Ast {
         val ast = antlrJavaParser(source, extractor, type, lexerFactory, parserFactory, issues)
@@ -27,9 +26,8 @@ abstract class AntlrJavaParser<P : Parser, Type : AstParserType>(
         return ast
     }
 
-    override fun parse(source: AstSource, types: List<Type>): List<Ast> {
-        return parse(source, types, mutableListOf())
-    }
+    override fun parse(source: AstSource, types: List<Type>): List<Ast> =
+        parse(source, types, mutableListOf())
 
     override fun parse(source: AstSource, types: List<Type>, issues: MutableList<Issue>): List<Ast> {
         val ast = antlrJavaParser(source, extractor, types, lexerFactory, parserFactory, issues)

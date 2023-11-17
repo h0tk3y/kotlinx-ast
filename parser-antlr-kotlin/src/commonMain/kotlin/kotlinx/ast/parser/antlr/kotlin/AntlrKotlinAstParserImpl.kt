@@ -1,12 +1,11 @@
 package kotlinx.ast.parser.antlr.kotlin
 
-import kotlinx.ast.common.AstChannel
-import kotlinx.ast.common.AstParserType
-import kotlinx.ast.common.AstSource
+import kotlinx.ast.common.*
 import kotlinx.ast.common.ast.*
 import kotlinx.ast.common.impl.AstList
 import kotlinx.ast.common.impl.flatten
 import org.antlr.v4.kotlinruntime.*
+import org.antlr.v4.kotlinruntime.tree.ErrorNode
 import org.antlr.v4.kotlinruntime.tree.ParseTree
 import org.antlr.v4.kotlinruntime.tree.TerminalNode
 
@@ -82,14 +81,14 @@ private class AntlrKotlinAstParserImpl(
         return result.map(::toAstTerminal)
     }
 
-    fun parse(node: ParseTree): AstList {
+    fun parse(node: ParseTree, issues: MutableList<Issue>): AstList {
         val start = hiddenTokens(node, start = true)
         val stop = hiddenTokens(node, start = false)
         val ast = when (node) {
             is ParserRuleContext -> {
                 val name = parserNames[node.ruleIndex]
-                val children = (node.children ?: emptyList<ParseTree>()).flatMap { children ->
-                    parse(children).flatten().map { ast ->
+                val children = (node.children ?: emptyList()).flatMap { children ->
+                    parse(children, issues).flatten().map { ast ->
                         ast.flatten(defaultChannel)
                     }.flatten()
                 }
@@ -99,10 +98,21 @@ private class AntlrKotlinAstParserImpl(
                     .fold(emptyAstInfo) { left, right ->
                         left + right
                     }
-                DefaultAstNode(name, children).withAstInfo(info)
+
+                val ast = DefaultAstNode(name, children).withAstInfo(info)
+                if (node.exception != null) {
+                    val message = "Recognition exception: ${node.exception!!.message}"
+                    issues.add(Issue.syntactic(message, position = node.toPosition(), ast = ast))
+                }
+                ast
             }
             is TerminalNode -> {
-                toAstTerminal(node.symbol ?: throw RuntimeException())
+                val ast = toAstTerminal(node.symbol ?: throw RuntimeException())
+                if (node is ErrorNode) {
+                    val message = "Error node found (token: ${node.symbol?.text})"
+                    issues.add(Issue.syntactic(message, position = node.toPosition(), ast = ast))
+                }
+                ast
             }
             else ->
                 throw RuntimeException()
@@ -116,9 +126,10 @@ fun <P : Parser, Type : AstParserType> antlrKotlinParser(
     extractor: AntlrKotlinParserExtractor<P, Type>,
     type: Type,
     lexerFactory: (CharStream) -> Lexer,
-    parserFactory: (TokenStream) -> P
+    parserFactory: (TokenStream) -> P,
+    issues: MutableList<Issue>
 ): Ast {
-    val result = antlrKotlinParser(source, extractor, listOf(type), lexerFactory, parserFactory)
+    val result = antlrKotlinParser(source, extractor, listOf(type), lexerFactory, parserFactory, issues)
     if (result.size != 1) {
         throw RuntimeException("expected exactly one ast!")
     }
@@ -130,7 +141,8 @@ fun <P : Parser, Type : AstParserType> antlrKotlinParser(
     extractor: AntlrKotlinParserExtractor<P, Type>,
     types: List<Type>,
     lexerFactory: (CharStream) -> Lexer,
-    parserFactory: (TokenStream) -> P
+    parserFactory: (TokenStream) -> P,
+    issues: MutableList<Issue>
 ): List<Ast> {
     val input = source.toAntlrKotlinCharStream()
     val lexer = lexerFactory(input)
@@ -162,11 +174,36 @@ fun <P : Parser, Type : AstParserType> antlrKotlinParser(
                 DefaultAstTerminal(tokenNames[token.type] ?: "", token.text ?: "", channels[token.channel])
             }
         } else {
-            astParser.parse(extractor.extract(parser, type)).join()
+            astParser.parse(extractor.extract(parser, type), issues).join()
         }
     }
     if (stream.LA(1) != -1) {
         throw RuntimeException("trailing data while parsing types \"${types.joinToString("\", \"")}\"")
     }
     return result
+}
+
+val Token.startPoint: Point
+    get() = Point(this.line, this.charPositionInLine)
+
+val Token.endPoint: Point
+    get() = if (this.type == Token.EOF) startPoint else startPoint + (this.text ?: "")
+
+fun Token.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? =
+    if (considerPosition) Position(this.startPoint, this.endPoint, source) else null
+
+fun TerminalNode.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? =
+    this.symbol?.toPosition(considerPosition, source)
+
+/**
+ * Returns the position of the receiver parser rule context.
+ * @param considerPosition if it's false, this method returns null.
+ */
+fun ParserRuleContext.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? {
+    return if (considerPosition && start != null && stop != null) {
+        val position = Position(start!!.startPoint, stop!!.endPoint)
+        if (source == null) position else Position(position.start, position.end, source)
+    } else {
+        null
+    }
 }

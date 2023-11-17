@@ -1,9 +1,6 @@
 package kotlinx.ast.parser.antlr.java
 
-import kotlinx.ast.common.AstChannel
-import kotlinx.ast.common.AstParserType
-import kotlinx.ast.common.AstSource
-import kotlinx.ast.common.Issue
+import kotlinx.ast.common.*
 import kotlinx.ast.common.ast.*
 import kotlinx.ast.common.impl.AstList
 import kotlinx.ast.common.impl.flatten
@@ -185,4 +182,32 @@ fun <P : Parser, Type : AstParserType> antlrJavaParser(
         throw RuntimeException("trailing data while parsing types \"${types.joinToString("\", \"")}\"")
     }
     return result
+}
+
+val Token.startPoint: Point
+    get() = Point(this.line, this.charPositionInLine)
+
+val Token.endPoint: Point
+    get() = if (this.type == Token.EOF) startPoint else startPoint + this.text
+
+fun Token.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? =
+    if (considerPosition) Position(this.startPoint, this.endPoint, source) else null
+
+fun TerminalNode.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? =
+    this.symbol.toPosition(considerPosition, source)
+
+val ParserRuleContext.position: Position
+    get() = Position(start.startPoint, stop.endPoint)
+
+/**
+ * Returns the position of the receiver parser rule context.
+ * @param considerPosition if it's false, this method returns null.
+ */
+fun ParserRuleContext.toPosition(considerPosition: Boolean = true, source: Source? = null): Position? {
+    return if (considerPosition && start != null && stop != null) {
+        val position = position
+        if (source == null) position else Position(position.start, position.end, source)
+    } else {
+        null
+    }
 }
