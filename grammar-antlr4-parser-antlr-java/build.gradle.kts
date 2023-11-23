@@ -45,3 +45,11 @@ tasks.generateGrammarSource {
         }
     outputDirectory = File("$projectDir/src/antlr/java/org/antlr/parser/antlr4")
 }
+
+tasks.compileKotlin {
+    dependsOn(tasks.generateGrammarSource)
+}
+
+tasks.compileTestKotlin {
+    dependsOn(tasks.generateTestGrammarSource)
+}

@@ -7,6 +7,20 @@ plugins {
     `maven-publish`
 }
 
+kotlin {
+    target {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
 tasks.withType(Test::class.java).all {
     useJUnitPlatform {}
     maxHeapSize = "4g"
